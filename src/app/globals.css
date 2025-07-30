@@ -1,6 +1,6 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
 
 :root {
   --primary: #9e624c;
@@ -11,4 +11,23 @@
   --dark: #1a1613;
   --LightSecondary: #fff8f5;
   --bannerBackground: #fff8f5;
+}
+
+@font-face {
+  font-family: "Vazir";
+  src: url("/font/Vazir-FD.woff2") format("woff2"),
+    url("/font/Vazir-FD.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Vazir", sans-serif;
+  background-color: var(--background);
+  width: 100%;
+  height: 100%;
 }

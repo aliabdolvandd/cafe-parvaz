@@ -3,20 +3,22 @@ import animate from "tailwindcss-animate";
 export default {
   darkMode: ["class"],
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
+      fontFamily: {
+        Vazir: ["Vazir"],
+      },
       colors: {
-        background: "hsl(var(--background))",
-        primary: "hsl(var(--primary))",
-        secondary: "hsl(var(--secondary))",
-        TXT: "hsl(var(--txt))",
-        stroke: "hsl(var(--stroke))",
-        LightSecondary: "hsl(var(--light-secondary))",
-        bannerBackground: "hsl(var(--banner-background))",
+        background: "var(--background)",
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        TXT: "var(--txt)",
+        stroke: "var(--stroke)",
+        LightSecondary: "var(--light-secondary)",
+        bannerBackground: "var(--banner-background)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
