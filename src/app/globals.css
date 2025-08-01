@@ -11,6 +11,39 @@
   --dark: #1a1613;
   --LightSecondary: #fff8f5;
   --bannerBackground: #fff8f5;
+  --adminDrawerBg: #dac4b5;
+  --adminDrawerText: #28221e;
+  --adminDrawerHoverBg: #f2e5da;
+  --adminDrawerHoverText: #1a1613;
+  --adminDrawerActiveBg: #9e624c20;
+  --adminDrawerActiveBorder: #9e624c;
+  --adminDrawerActiveText: #9e624c;
+}
+
+@layer base {
+  h1 {
+    @apply text-[2rem] font-bold;
+  }
+
+  h2 {
+    @apply text-[1.75rem] font-semibold;
+  }
+
+  h3 {
+    @apply text-[1.5rem] font-semibold;
+  }
+
+  h4 {
+    @apply text-[1.25rem] font-medium;
+  }
+
+  h5 {
+    @apply text-[1rem] font-medium;
+  }
+
+  h6 {
+    @apply text-[0.75rem] font-medium;
+  }
 }
 
 @font-face {
@@ -21,8 +54,7 @@
   font-style: normal;
 }
 
-body,
-html {
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;

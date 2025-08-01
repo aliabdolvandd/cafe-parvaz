@@ -3,8 +3,6 @@ export default function WaveIcon() {
     <div className=" relative w-full h-[200px] overflow-hidden">
       <div className="absolute bottom-0 left-0 w-full h-[100%] origin-bottom">
         <svg
-          //   width="1512"
-          //   height="241"
           viewBox="0 0 1512 241"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -18,8 +16,6 @@ export default function WaveIcon() {
       </div>
       <div className="absolute bottom-0 left-0 w-full h-[100%] origin-bottom">
         <svg
-          //   width="1512"
-          //   height="248"
           viewBox="0 0 1512 248"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
