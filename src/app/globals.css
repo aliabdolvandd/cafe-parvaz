@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  --radius: 0.625rem;
   --primary: #9e624c;
   --background: #fff8f5;
   --TXT: #28221e;

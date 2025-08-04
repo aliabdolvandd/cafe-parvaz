@@ -1,7 +1,9 @@
 "use client";
-import CallIcon from "@/svg/call";
 import WaveIcon from "@/svg/Wave";
+import { MailIcon } from "lucide-react";
 import Image from "next/image";
+import { Input } from "../ui/input";
+import { Label } from "../ui/label";
 
 function Login() {
   return (
@@ -28,27 +30,54 @@ function Login() {
           <Image src="/vector.png" alt="coffee" width={42} height={40} />
         </div>
         <p className="text-[30px] font-bold p-1">ورود / ثبت نام </p>
-        <p className="text-gray-400">برای ورود شماره تماس خود را وارد نمایید</p>
-        <div className="w-full max-w-sm mx-auto space-y-4 ">
-          <label htmlFor="phone" className="self-end text-sm text-black">
-            شماره تماس
-          </label>
-          <div className="relative w-full">
-            <input
-              type="text"
-              id="phone"
-              maxLength={11}
-              className="w-full pr-4 pl-4 py-2 rounded-xl border border-primary text-right focus:outline-none"
-            />
-            <div className="absolute inset-y-0 left-2 flex items-center">
-              <CallIcon />
+        <p className="text-gray-400">برای ورود ایمیل خود را وارد نمایید</p>
+        <form className="w-full" action="">
+          <div className=" max-w-sm mx-auto space-y-6">
+            <div className="relative w-full">
+              <Input
+                type="text"
+                id="email"
+                // placeholder=""
+                className="peer w-full pr-10 pl-4 pt-4 pb-2 rounded-xl border border-primary text-right focus:outline-none"
+              />
+              {/* <Label
+                htmlFor="email"
+                className="absolute right-4 top-2 text-xs text-muted-foreground transition-all bg-background px-1
+            peer-placeholder-shown:top-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400
+            peer-focus:-top-3 peer-focus:text-sm peer-focus:text-primary"
+              >
+                ایمیل
+              </Label> */}
+              <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                <MailIcon className="text-primary h-5 w-5" />
+              </div>
             </div>
-          </div>
 
-          <button className="w-full bg-primary text-white py-3 rounded-xl text-sm font-semibold">
-            ورود
-          </button>
-        </div>
+            <div className="relative w-full">
+              <Input
+                type="password"
+                id="password"
+                placeholder=""
+                className="peer w-full pr-4 pl-4 pt-4 pb-2 rounded-xl border border-primary text-right focus:outline-none"
+              />
+              <Label
+                htmlFor="password"
+                className="absolute right-4 top-2 text-sm text-muted-foreground transition-all bg-background px-1
+            peer-placeholder-shown:top-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400
+            peer-focus:-top-3 peer-focus:text-sm peer-focus:text-primary"
+              >
+                رمز عبور
+              </Label>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-primary text-white py-3 rounded-xl text-sm font-semibold"
+            >
+              ورود
+            </button>
+          </div>
+        </form>
       </div>
       <div className="fixed bottom-0 w-full">
         <WaveIcon />

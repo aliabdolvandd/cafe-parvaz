@@ -10,6 +10,7 @@ export default function MainMenu() {
         <Image src="/logo.png" alt="logo" height={70} width={130} />
       </div>
       <div className="py-4 grow">
+        <MenuItems href="dashboard">داشبود</MenuItems>
         <MenuItems href="/dashboard/products">محصولات</MenuItems>
         <MenuItems href="/dashboard/orders">سفارشات</MenuItems>
         <MenuItems href="/dashboard/comments">نظرات</MenuItems>

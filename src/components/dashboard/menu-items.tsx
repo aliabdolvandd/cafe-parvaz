@@ -13,7 +13,6 @@ type props = {
 export default function MenuItems({ children, href }: props) {
   const pathName = usePathname();
   const isActive = pathName === href;
-
   return (
     <Link
       href={href}
