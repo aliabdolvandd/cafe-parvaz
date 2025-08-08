@@ -17,6 +17,7 @@ import {
 } from "../ui/form";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export default function LoginForm() {
   const [loading, setLoading] = useState(false);
@@ -118,6 +119,16 @@ export default function LoginForm() {
               "ورود"
             )}
           </Button>
+          <p className="text-xs text-gray-500 text-center ">
+            حساب کاربری ندارید؟همین حالا
+            <Link
+              href="/register"
+              className="text-md text-black font-bold mx-2 underline"
+            >
+              عضو
+            </Link>
+            شوید
+          </p>
         </form>
       </Form>
     </div>
