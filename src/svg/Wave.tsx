@@ -1,6 +1,6 @@
 export default function WaveIcon() {
   return (
-    <div className=" relative w-full h-[200px]">
+    <div className=" relative w-full h-[200px] pointer-events-none">
       <div className="absolute bottom-0 left-0 w-full h-[100%] origin-bottom">
         <svg
           viewBox="0 0 1512 241"
