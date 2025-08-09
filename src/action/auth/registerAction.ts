@@ -1,13 +1,12 @@
 "use server";
 import "server-only";
+import { createSession } from "@/lib/session";
+import { RegisterFormSchema, RegisterType } from "@/lib/validation";
+import { RegisterRequest } from "@/api/auth";
 import { ApiError } from "@/api/base";
 
-import { createSession } from "@/lib/session";
-import { LoginFormSchema, LoginType } from "@/lib/validation";
-import { loginRequest } from "@/api/auth";
-
-export async function LoginAction(data: LoginType) {
-  const validated = LoginFormSchema.safeParse(data);
+export async function RegisterAction(data: RegisterType) {
+  const validated = RegisterFormSchema.safeParse(data);
 
   if (!validated.success) {
     return {
@@ -15,22 +14,19 @@ export async function LoginAction(data: LoginType) {
       errors: validated.error.flatten().fieldErrors,
     };
   }
-
   try {
-    const result = await loginRequest(validated.data);
+    const result = await RegisterRequest(validated.data);
 
-    if (!result?.token) {
+    if (!result.token) {
       return {
         success: false,
-        message: "ورود ناموفق بود",
+        message: "ثبت نام ناموق بود ",
       };
     }
-
     await createSession({
       accessToken: result.token.accessToken,
       refreshToken: result.token.refreshToken,
     });
-
     return { success: true };
   } catch (e) {
     if (e instanceof ApiError) {
@@ -40,10 +36,9 @@ export async function LoginAction(data: LoginType) {
         errors: e.body?.errors,
       };
     }
-
     return {
       success: false,
-      message: "خطای ناشناخته‌ای رخ داد",
+      message: "خطای ناشناخته",
     };
   }
 }

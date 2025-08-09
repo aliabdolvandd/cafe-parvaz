@@ -11,12 +11,21 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import { useState } from "react";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
-import { Loader, TriangleAlert } from "lucide-react";
+import {
+  EyeClosed,
+  EyeIcon,
+  EyeOff,
+  Loader,
+  TriangleAlert,
+} from "lucide-react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import { RegisterAction } from "@/action/auth/registerAction";
 
 export default function RegisterForm() {
   const [serverError, setServerError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const form = useForm<RegisterType>({
     resolver: zodResolver(RegisterFormSchema),
     mode: "onTouched",
@@ -29,8 +38,14 @@ export default function RegisterForm() {
     },
   });
 
-  const onSubmit = () => {
-    console.log("action");
+  const onSubmit = async (data: RegisterType) => {
+    setLoading(true);
+    setServerError(null);
+    const result = await RegisterAction(data);
+    if (!result.success) {
+      setServerError(result.message ?? null);
+    }
+    setLoading(false);
   };
   const formStyle =
     "w-full h-10 text-xs text-right px-3 rounded-xl border border-primary focus:outline-none placeholder:text-xs";
@@ -125,29 +140,50 @@ export default function RegisterForm() {
               </FormItem>
             )}
           />
+
           <FormField
             control={form.control}
             name="password"
             render={({ field }) => (
               <FormItem className="w-full">
-                <FormControl>
-                  <Input
-                    type="password"
-                    placeholder="رمز عبور"
-                    className={formStyle}
-                    {...field}
-                  />
-                </FormControl>
+                <div className="relative">
+                  <FormControl>
+                    <Input
+                      type={showPassword ? "text" : "password"}
+                      placeholder="رمز عبور"
+                      className={formStyle}
+                      {...field}
+                    />
+                  </FormControl>
+                  <div
+                    className="absolute top-1/2 left-3 transform -translate-y-1/2"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? (
+                      <EyeIcon size={20} />
+                    ) : (
+                      <EyeClosed size={20} />
+                    )}
+                  </div>
+                </div>
                 <FormMessage className="text-xs text-red-500 mt-1" />
               </FormItem>
             )}
           />
+
           <Button
-            // disabled={loading}
+            disabled={loading}
             type="submit"
             className="w-full h-10 bg-primary text-white py-3 rounded-xl text-sm font-semibold disabled:bg-gray-600"
           >
-            عضویت
+            {loading ? (
+              <>
+                <Loader className="mr-2 h-4 w-4 animate-spin" />
+                در حال عضو شدن
+              </>
+            ) : (
+              "عضویت"
+            )}
           </Button>
         </form>
       </Form>

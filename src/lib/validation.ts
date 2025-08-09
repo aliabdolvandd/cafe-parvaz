@@ -2,7 +2,7 @@ import { z } from "zod";
 import { FormState } from "@/types/type";
 
 export const LoginFormSchema = z.object({
-  username: z
+  userName: z
     .string()
     .min(1, { message: "وارد کردن ایمیل یا نام کاربری الزامی است" })
     .refine(
@@ -50,7 +50,13 @@ export const RegisterFormSchema = z.object({
     .string()
     .min(4, { message: "رمز عبور نمیتواند کمتر از 4 عدد باشد" })
     .max(32, { message: "رمز عبور نمیتواند بیشتر از 32 عدد باشد" })
-    .regex(/^[^\s]+$/, { message: "رمز عبور نباید فاصله داشته باشد" }),
+    .regex(/^[^\s]+$/, { message: "رمز عبور نباید فاصله داشته باشد" })
+    .regex(/[a-z]/, {
+      message: "رمز عبور باید حداقل یک حرف کوچک انگلیسی داشته باشد",
+    })
+    .regex(/[A-Z]/, {
+      message: "رمز عبور باید حداقل یک حرف بزرگ انگلیسی داشته باشد",
+    }),
 });
 
 export type RegisterType = z.infer<typeof RegisterFormSchema>;

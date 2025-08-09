@@ -26,7 +26,7 @@ export default function LoginForm() {
     resolver: zodResolver(LoginFormSchema),
     mode: "onTouched",
     defaultValues: {
-      username: "",
+      userName: "",
       password: "",
     },
   });
@@ -64,7 +64,7 @@ export default function LoginForm() {
           )}
           <FormField
             control={form.control}
-            name="username"
+            name="userName"
             render={({ field }) => (
               <FormItem className="relative w-full">
                 <div className="relative">
@@ -93,6 +93,7 @@ export default function LoginForm() {
                     <Input
                       {...field}
                       type="password"
+                      autoComplete="current-password"
                       id="password"
                       className="w-full h-12 text-xs px-10 rounded-xl border border-primary text-right focus:outline-none"
                     />

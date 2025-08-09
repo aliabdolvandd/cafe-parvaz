@@ -1,7 +1,7 @@
 "use client";
 import RegisterForm from "@/components/form/registerForm";
 
-// import WaveIcon from "@/svg/Wave";
+import WaveIcon from "@/svg/Wave";
 import Image from "next/image";
 
 export default function RegisterPage() {
@@ -25,9 +25,9 @@ export default function RegisterPage() {
         </div>
       </div>
       <RegisterForm />
-      {/* <div className="fixed bottom-0 w-full">
+      <div className="fixed bottom-0 w-full">
         <WaveIcon />
-      </div> */}
+      </div>
     </div>
   );
 }

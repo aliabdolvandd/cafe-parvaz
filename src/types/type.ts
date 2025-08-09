@@ -20,4 +20,4 @@ export type RegisterResponse = {
   };
 };
 
-export type LoginResponse = Omit<RegisterResponse, "profile">;
+export type LoginResponse = RegisterResponse;
