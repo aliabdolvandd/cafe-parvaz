@@ -8,7 +8,7 @@ export default async function BrandPage({ searchParams }: ServerPageProps) {
   const brands = getBrands(params);
   return (
     <TableContainer
-      pageTitle="صفحه برند ها"
+      pageTitle=""
       title="ساخت برند جدید"
       createLink="/dashboard/brand/create"
     >
