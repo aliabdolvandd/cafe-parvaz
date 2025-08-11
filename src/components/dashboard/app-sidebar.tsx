@@ -29,18 +29,18 @@ const items = [
     icon: Home,
   },
   {
-    title: "Inbox",
-    url: "#",
+    title: "برند",
+    url: "/dashboard/brand",
     icon: Inbox,
   },
   {
-    title: "Calendar",
-    url: "#",
+    title: "کتگوری",
+    url: "/dashboard/category",
     icon: Calendar,
   },
   {
-    title: "Search",
-    url: "#",
+    title: "محصولات",
+    url: "/dashboard/products",
     icon: Search,
   },
   {

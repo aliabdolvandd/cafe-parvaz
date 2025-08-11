@@ -23,6 +23,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+import { LogoutAction } from "@/action/auth/logoutAction";
 
 export default function UserSection({
   user,
@@ -89,7 +90,10 @@ export default function UserSection({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="text-red-500">
+            <DropdownMenuItem
+              className="text-red-500"
+              onClick={() => LogoutAction()}
+            >
               <IconLogout />
               خروج از حساب کاربری
             </DropdownMenuItem>

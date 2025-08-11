@@ -61,3 +61,12 @@ export const RegisterFormSchema = z.object({
 
 export type RegisterType = z.infer<typeof RegisterFormSchema>;
 export type RegisterFormState = FormState<RegisterType>;
+
+export const BrandSchema = z.object({
+  name: z.string().min(1, { message: "نام برند اجباری است" }).trim(),
+  description: z.string().nullable().optional(),
+  imageUrl: z.string().nullable().optional(),
+});
+
+export type BrandType = z.infer<typeof BrandSchema>;
+export type BrandFormState = FormState<BrandType>;

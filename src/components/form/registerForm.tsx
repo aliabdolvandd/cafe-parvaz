@@ -11,13 +11,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import { useState } from "react";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
-import {
-  EyeClosed,
-  EyeIcon,
-  EyeOff,
-  Loader,
-  TriangleAlert,
-} from "lucide-react";
+import { EyeClosed, EyeIcon, Loader, TriangleAlert } from "lucide-react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { RegisterAction } from "@/action/auth/registerAction";
